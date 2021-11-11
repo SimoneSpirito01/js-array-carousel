@@ -19,7 +19,7 @@
 
 .slider {
     width: 80%;
-    height: 60%;
+    height: 70%;
     display: flex;
 }
 
@@ -49,10 +49,12 @@
 }
 
 .item-text {
+    text-align: right;
     color: white;
     position: absolute;
     bottom: 25px;
     right: 20px;
+    padding-left: 20px;
 }
 
 /* slider mignaturs */
@@ -68,13 +70,14 @@
     line-height: 30px;
     background-color: #cccccc;
     border-radius: 50%;
+    cursor: pointer;
+    z-index: 9999;
 }
 
 .prev, .next {
     width: 100%;
     font-size: 18px;
     text-align: center;
-    border-radius: 50%;
     position: absolute;
 }
 
