@@ -18,24 +18,41 @@
 /* slider */
 
 .slider {
-    width: 70%;
+    width: 80%;
     height: 60%;
     display: flex;
+}
+
+.active {
+    display: block !important;
 }
 
 /* slider content */
 
 .sl-content {
     width: 80%;
+    position: relative;
 }
 
 .sl-content .item-container, .sl-content .item {
     height: 100%;
 }
 
+.sl-content .item {
+    display: none;
+}
+
 .sl-content .item img {
     width: 100%;
     height: 100%;
+    display: block;
+}
+
+.item-text {
+    color: white;
+    position: absolute;
+    bottom: 25px;
+    right: 20px;
 }
 
 /* slider mignaturs */
@@ -73,7 +90,11 @@
     height: 20%;
 }
 
-
+.mignatur img {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
 
 /* debug */
 
