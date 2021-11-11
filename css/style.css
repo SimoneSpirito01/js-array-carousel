@@ -1,7 +1,91 @@
 
+/* commons */
+
 * {
     margin: 0 ;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Lato', sans-serif;
+}
+
+.container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* slider */
+
+.slider {
+    width: 70%;
+    height: 60%;
+    display: flex;
+}
+
+/* slider content */
+
+.sl-content {
+    width: 80%;
+}
+
+.sl-content .item-container, .sl-content .item {
+    height: 100%;
+}
+
+.sl-content .item img {
+    width: 100%;
+    height: 100%;
+}
+
+/* slider mignaturs */
+
+.sl-min {
+    width: 20%;
+    position: relative;
+}
+
+.sl-min i {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    background-color: #cccccc;
+    border-radius: 50%;
+}
+
+.prev, .next {
+    width: 100%;
+    font-size: 18px;
+    text-align: center;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.prev {
+    top: 5px;
+}
+
+.next {
+    bottom: 5px;
+}
+
+.mignatur {
+    height: 20%;
+}
+
+
+
+/* debug */
+
+.debug .slider {
+    background-color: lightsalmon;
+}
+
+.debug .sl-content, .debug .sl-min {
+    height: 100%;
+    border: 1px solid black;
+}
+
+.debug .mignatur {
+    border: 1px solid black;
 }
