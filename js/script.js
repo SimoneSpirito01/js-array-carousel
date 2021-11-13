@@ -98,3 +98,13 @@ prev.addEventListener('click', function(){
     mignatur[activeItem].classList.add('active-min');
 })
 
+for (let j = 0; j < items.length; j++){
+    mignatur[j].addEventListener('click', function(){
+        item[activeItem].classList.remove('active');
+        mignatur[activeItem].classList.remove('active-min');
+        activeItem = j;
+        item[activeItem].classList.add('active');
+        mignatur[activeItem].classList.add('active-min');
+        
+    })
+}

@@ -98,6 +98,7 @@
 .mignatur {
     height: 20%;
     opacity: 0.4;
+    cursor: pointer;
     
 }
 
@@ -105,6 +106,12 @@
     width: 100%;
     height: 100%;
     display: block;
+}
+
+/* effetti hover */
+
+.sl-min i:hover {
+    background-color: white;
 }
 
 /* debug */
