@@ -54,7 +54,7 @@ for (let i = 0; i < items.length; i++) {
                 </div>`;
     
     mignaturs += `<div class="mignatur">
-                     <img src="${items[i]}" alt="${title[i]}">
+                     <img class="min-img" src="${items[i]}" alt="${title[i]}">
                   </div>`
 }
 
@@ -67,7 +67,7 @@ sliderMin.innerHTML += mignaturs;
 const prev = document.querySelector('.fa-chevron-up');
 const next = document.querySelector('.fa-chevron-down');
 let item = document.getElementsByClassName('item');
-let mignatur = document.getElementsByClassName('mignatur');
+let mignatur = document.getElementsByClassName('min-img');
 let activeItem = 0;
 item[activeItem].classList.add('active');
 mignatur[activeItem].classList.add('active-min');
