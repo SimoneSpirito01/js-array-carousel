@@ -64,8 +64,8 @@ itemContainer.innerHTML = content;
 const sliderMin = document.querySelector('.sl-min');
 sliderMin.innerHTML += mignaturs;
 
-const prev = document.querySelector('.fa-chevron-up');
-const next = document.querySelector('.fa-chevron-down');
+const prev = document.querySelector('.prev');
+const next = document.querySelector('.next');
 let item = document.getElementsByClassName('item');
 let mignatur = document.getElementsByClassName('min-img');
 let activeItem = 0;
