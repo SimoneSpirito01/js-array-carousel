@@ -27,6 +27,11 @@
     display: block !important;
 }
 
+.active-min {
+    opacity: 1 !important;
+    border: 2px solid white;
+}
+
 /* slider content */
 
 .sl-content {
@@ -62,6 +67,7 @@
 .sl-min {
     width: 20%;
     position: relative;
+    background-color: black;
 }
 
 .sl-min i {
@@ -71,7 +77,6 @@
     background-color: #cccccc;
     border-radius: 50%;
     cursor: pointer;
-    z-index: 9999;
 }
 
 .prev, .next {
@@ -79,6 +84,7 @@
     font-size: 18px;
     text-align: center;
     position: absolute;
+    z-index: 2;
 }
 
 .prev {
@@ -91,6 +97,8 @@
 
 .mignatur {
     height: 20%;
+    opacity: 0.4;
+    
 }
 
 .mignatur img {

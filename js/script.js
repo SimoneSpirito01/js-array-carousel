@@ -70,9 +70,11 @@ let item = document.getElementsByClassName('item');
 let mignatur = document.getElementsByClassName('mignatur');
 let activeItem = 0;
 item[activeItem].classList.add('active');
+mignatur[activeItem].classList.add('active-min');
 
 next.addEventListener('click', function(){
     item[activeItem].classList.remove('active');
+    mignatur[activeItem].classList.remove('active-min');
     activeItem += 1;
     if (activeItem == items.length){
         activeItem = 0;
@@ -80,10 +82,12 @@ next.addEventListener('click', function(){
         activeItem = items.length - 1;
     }
     item[activeItem].classList.add('active');
+    mignatur[activeItem].classList.add('active-min');
 })
 
 prev.addEventListener('click', function(){
     item[activeItem].classList.remove('active');
+    mignatur[activeItem].classList.remove('active-min');
     activeItem -= 1;
     if (activeItem == items.length){
         activeItem = 0;
@@ -91,5 +95,6 @@ prev.addEventListener('click', function(){
         activeItem = items.length - 1;
     }
     item[activeItem].classList.add('active');
+    mignatur[activeItem].classList.add('active-min');
 })
 
