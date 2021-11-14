@@ -22,7 +22,10 @@ const items = [
     'img/02.jpg',
     'img/03.jpg',
     'img/04.jpg',
-    'img/05.jpg'
+    'img/05.jpg',
+    'img/06.jpg',
+    'img/07.jpg',
+    'img/08.jpg'
 ];
 
 const title = [
@@ -30,7 +33,11 @@ const title = [
     'Svizzera',
     'Gran Bretagna',
     'Germania',
-    'Paradise'
+    'Paradise',
+    'Italy',
+    'Scotland',
+    'Colombia'
+
 ]
 
 const text = [
@@ -39,23 +46,36 @@ const text = [
     'Lorem ipsum, dolor sit amet consectetur adipisicing elit.',
     'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam,',
     'Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam,',
+    'Lorem ipsum, dolor sit amet consectetur adipisicing elit.',
+    'Lorem ipsum',
+    'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam,',
 ]
 
 let content = '';
 let mignaturs = '';
+let dots = '';
 
 for (let i = 0; i < items.length; i++) {
-    content += `<div class="item">
+    content += `
+                <div class="item">
                     <img src="${items[i]}" alt="${title[i]}">
                     <div class="item-text">
                             <h3>${title[i]}</h3>
                             <p>${text[i]}</p>
                     </div>
-                </div>`;
+                </div>
+                `;
     
-    mignaturs += `<div class="mignatur">
+    mignaturs += `
+                <div class="mignatur">
                      <img class="min-img" src="${items[i]}" alt="${title[i]}">
-                  </div>`
+                </div>
+                 `;
+
+    dots += `
+            <div class="dot"></div>
+    
+            `;
 }
 
 const itemContainer = document.querySelector('.item-container');
@@ -64,47 +84,117 @@ itemContainer.innerHTML = content;
 const sliderMin = document.querySelector('.sl-min');
 sliderMin.innerHTML += mignaturs;
 
+const dotsCont = document.querySelector('.dots');
+dotsCont.innerHTML += dots;
+
 const prev = document.querySelector('.prev');
 const next = document.querySelector('.next');
 let item = document.getElementsByClassName('item');
 let mignatur = document.getElementsByClassName('min-img');
+let dot = document.getElementsByClassName('dot');
 let activeItem = 0;
 item[activeItem].classList.add('active');
 mignatur[activeItem].classList.add('active-min');
+dot[activeItem].classList.add('active-dot');
+const minContainer = document.getElementsByClassName('mignatur');
+let visMin = activeItem;
+
+for (let y = 0; y < 5; y++){
+    minContainer[visMin].classList.add('d-block')
+    visMin += 1;
+}
 
 next.addEventListener('click', function(){
+    console.log(activeItem)
     item[activeItem].classList.remove('active');
     mignatur[activeItem].classList.remove('active-min');
-    activeItem += 1;
-    if (activeItem == items.length){
+    dot[activeItem].classList.remove('active-dot');
+    
+    if (activeItem == items.length - 1){
+        for (let x = 0; x < 5; x++){
+            const acMinVis = document.getElementsByClassName('d-block');
+            acMinVis[x].classList.remove('d-block');
+            minContainer[x].classList.add('d-block');
+        }
         activeItem = 0;
-    } else if (activeItem < 0){
-        activeItem = items.length - 1;
+    } else {
+        activeItem += 1;
     }
+
     item[activeItem].classList.add('active');
     mignatur[activeItem].classList.add('active-min');
+    dot[activeItem].classList.add('active-dot');
+    if (activeItem > 4){
+        minContainer[activeItem - 5].classList.remove('d-block');
+        minContainer[activeItem].classList.add('d-block');
+    }
 })
 
 prev.addEventListener('click', function(){
+    let firstVisMin = document.querySelector('.d-block > img')
+    console.log(firstVisMin);
+    if (firstVisMin.classList.contains('active-min') && activeItem != 0){
+        console.log(activeItem);
+        minContainer[activeItem + 4].classList.remove('d-block');
+        minContainer[activeItem - 1].classList.add('d-block');
+    }
+
     item[activeItem].classList.remove('active');
     mignatur[activeItem].classList.remove('active-min');
-    activeItem -= 1;
-    if (activeItem == items.length){
-        activeItem = 0;
-    } else if (activeItem < 0){
+    dot[activeItem].classList.remove('active-dot');
+    
+    if (activeItem <= 0){
+        let hiMinVis = minContainer.length - 1;
+        console.log(minContainer)
+        for (let x = 0; x < 5; x++){
+            minContainer[x].classList.remove('d-block');
+        }
+        for (let z = 0; z < 5; z++){
+            console.log(hiMinVis)
+            minContainer[hiMinVis].classList.add('d-block');
+            hiMinVis -= 1;
+        }
         activeItem = items.length - 1;
+    } else {
+        activeItem -= 1;
     }
+
     item[activeItem].classList.add('active');
     mignatur[activeItem].classList.add('active-min');
+    dot[activeItem].classList.add('active-dot');
+  
 })
 
 for (let j = 0; j < items.length; j++){
     mignatur[j].addEventListener('click', function(){
         item[activeItem].classList.remove('active');
         mignatur[activeItem].classList.remove('active-min');
+        dot[activeItem].classList.remove('active-dot');
         activeItem = j;
         item[activeItem].classList.add('active');
         mignatur[activeItem].classList.add('active-min');
-        
+        dot[activeItem].classList.add('active-dot');
+    })
+
+    dot[j].addEventListener('click', function(){
+        item[activeItem].classList.remove('active');
+        mignatur[activeItem].classList.remove('active-min');
+        dot[activeItem].classList.remove('active-dot');
+        activeItem = j;
+        item[activeItem].classList.add('active');
+        mignatur[activeItem].classList.add('active-min');
+        dot[activeItem].classList.add('active-dot');
     })
 }
+
+// const minContainer = document.getElementsByClassName('mignatur');
+
+// for (y = 0; y < 5; y++){
+//     minContainer[activeItem++].classList.add('d-block');
+//     console.log(activeItem);
+//     if (activeItem > 4){
+//         minContainer[activeItem - 5].classList.remove('d-block')
+//         minContainer[activeItem].classList.add('d-block');
+//     }
+// }
+
