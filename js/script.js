@@ -113,6 +113,7 @@ next.addEventListener('click', function(){
     if (activeItem == items.length - 1){
         for (let x = 0; x < 5; x++){
             const acMinVis = document.getElementsByClassName('d-block');
+            console.log(acMinVis)
             acMinVis[x].classList.remove('d-block');
             minContainer[x].classList.add('d-block');
         }
@@ -177,6 +178,25 @@ for (let j = 0; j < items.length; j++){
     })
 
     dot[j].addEventListener('click', function(){
+        if (!(minContainer[j].classList.contains('d-block'))){
+            let hiMinVis = j
+            console.log(hiMinVis);
+            for (let k = 0; k < 5; k++){
+                const acTimVis = document.getElementsByClassName('d-block');
+                acTimVis[0].classList.remove('d-block')
+            }
+            for (let z = 0; z < 5; z++){
+                console.log(hiMinVis);
+                minContainer[hiMinVis].classList.add('d-block');
+                
+                // controllo 3 perchè è il numero di mignature nascoste
+                if (j >= 3){
+                    hiMinVis -= 1;
+                } else {
+                    hiMinVis += 1;
+                }
+            }
+        }
         item[activeItem].classList.remove('active');
         mignatur[activeItem].classList.remove('active-min');
         dot[activeItem].classList.remove('active-dot');
