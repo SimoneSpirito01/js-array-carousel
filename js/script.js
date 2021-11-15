@@ -207,14 +207,3 @@ for (let j = 0; j < items.length; j++){
     })
 }
 
-// const minContainer = document.getElementsByClassName('mignatur');
-
-// for (y = 0; y < 5; y++){
-//     minContainer[activeItem++].classList.add('d-block');
-//     console.log(activeItem);
-//     if (activeItem > 4){
-//         minContainer[activeItem - 5].classList.remove('d-block')
-//         minContainer[activeItem].classList.add('d-block');
-//     }
-// }
-

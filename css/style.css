@@ -24,6 +24,7 @@
     background-color: white !important;
     opacity: 1 !important;
     border: 3px solid white !important;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .active-dot {
